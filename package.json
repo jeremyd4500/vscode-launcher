@@ -2,6 +2,23 @@
 	"name": "vscode-launcher",
 	"version": "0.1.0",
 	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jeremyd4500/vscode-launcher.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jeremyd4500/vscode-launcher/issues"
+	},
+	"homepage": "https://github.com/jeremyd4500/vscode-launcher#readme",
+	"author": "Jeremy Wilson",
+	"license": "MIT",
+	"keywords": [
+		"vscode",
+		"visual",
+		"studio",
+		"code",
+		"launcher"
+	],
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev",
@@ -10,19 +27,31 @@
 		"lint": "eslint . --ext .ts,.tsx --ignore-path .eslintignore",
 		"prepare": "husky install",
 		"start": "next start",
-		"tauri": "tauri"
+		"tauri:dev": "tauri dev"
 	},
 	"dependencies": {
-		"@next/font": "13.1.1",
+		"@emotion/react": "^11.10.5",
+		"@emotion/styled": "^11.10.5",
+		"@fontsource/roboto": "^4.5.8",
+		"@hookform/error-message": "^2.0.1",
+		"@hookform/resolvers": "^2.9.10",
+		"@mui/icons-material": "^5.11.0",
+		"@mui/material": "^5.11.4",
 		"@types/node": "18.11.18",
 		"@types/react": "18.0.26",
 		"@types/react-dom": "18.0.10",
 		"next": "13.1.1",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",
-		"typescript": "4.9.4"
+		"react-focus-lock": "^2.9.2",
+		"react-hook-form": "^7.41.5",
+		"sequelize": "^6.28.0",
+		"sqlite3": "^5.1.4",
+		"typescript": "4.9.4",
+		"yup": "^0.32.11"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.20.12",
 		"@tauri-apps/cli": "^1.2.2",
 		"@typescript-eslint/eslint-plugin": "^5.48.1",
 		"@typescript-eslint/parser": "^5.48.1",

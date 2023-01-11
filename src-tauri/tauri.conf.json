@@ -56,10 +56,12 @@
 		"windows": [
 			{
 				"fullscreen": false,
-				"height": 600,
 				"resizable": true,
 				"title": "VS Code Launcher",
-				"width": 800
+				"width": 800,
+				"height": 600,
+				"minWidth": 800,
+				"minHeight": 600
 			}
 		]
 	}
