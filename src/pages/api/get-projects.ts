@@ -4,7 +4,7 @@ import { handleCaughtAPIError } from '@/utilities/helpers';
 import { validateRequestMethod } from '@/utilities/validators';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const getCategories = async (req: NextApiRequest, res: NextApiResponse) => {
+const getProjects = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		validateRequestMethod('GET', req);
 		const sequelize = await DB.getConnection();
@@ -12,11 +12,11 @@ const getCategories = async (req: NextApiRequest, res: NextApiResponse) => {
 			throw RESPONSES.generic.databaseConnectionError;
 		}
 		const { models } = sequelize;
-		const categories = await models.Category.findAll();
-		res.status(200).send(categories);
+		const projects = await models.Project.findAll();
+		res.status(200).send(projects);
 	} catch (error) {
 		handleCaughtAPIError(error, res);
 	}
 };
 
-export default getCategories;
+export default getProjects;

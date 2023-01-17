@@ -1,5 +1,5 @@
+import { APIErrorResponse } from '@/types/UtilityTypes';
 import { NextApiResponse } from 'next';
-import { APIErrorResponse } from '../types/UtilityTypes';
 
 export const handleCaughtAPIError = (
 	error: APIErrorResponse | any,

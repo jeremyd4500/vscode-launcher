@@ -1,0 +1,8 @@
+.MuiInputBase-root {
+	background-color: theme(colors[dark_grey]) !important;
+	color: theme(colors[text_default]);
+}
+
+.MuiInputBase-root::after {
+	border-bottom: 2px solid theme(colors[text_bright]) !important;
+}

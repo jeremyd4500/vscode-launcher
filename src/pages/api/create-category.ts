@@ -1,15 +1,23 @@
+import { CreateCategoryBody } from '@/db/models/Category';
+import { DB } from '@/db/sequelize';
+import { RESPONSES } from '@/utilities/constants';
+import { handleCaughtAPIError } from '@/utilities/helpers';
+import { validateRequestMethod } from '@/utilities/validators';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { DB } from '../../db/sequelize';
-import { RESPONSES } from '../../utilities/constants';
-import { handleCaughtAPIError } from '../../utilities/helpers';
-import { validateRequestMethod } from '../../utilities/validators';
 
 const createCategory = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		validateRequestMethod('POST', req);
 		const { name } = req.body;
+		const createCategoryBody: CreateCategoryBody = {
+			name: ''
+		};
 		if (typeof name !== 'string' || !name.length) {
-			throw RESPONSES.category.invalidCategoryName;
+			throw RESPONSES.models.category.invalidName;
+		}
+		createCategoryBody.name = name;
+		if (!Object.keys(createCategoryBody).length) {
+			throw RESPONSES.generic.emptyBody;
 		}
 		const sequelize = await DB.getConnection();
 		if (!sequelize) {

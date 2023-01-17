@@ -5,6 +5,7 @@
 			"name": "Debug",
 			"type": "node-terminal",
 			"request": "launch",
+			"preLaunchTask": "build:dev",
 			"command": "yarn tauri:dev",
 			"internalConsoleOptions": "openOnSessionStart"
 		}

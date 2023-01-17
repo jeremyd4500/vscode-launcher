@@ -7,19 +7,19 @@ import {
 } from '@/utilities/validators';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-const deleteCategory = async (req: NextApiRequest, res: NextApiResponse) => {
+const deleteProject = async (req: NextApiRequest, res: NextApiResponse) => {
 	try {
 		validateRequestMethod('DELETE', req);
 		const { id } = req.body;
 		if (!validNumericString(id)) {
-			throw RESPONSES.models.category.invalidId;
+			throw RESPONSES.models.project.invalidId;
 		}
 		const sequelize = await DB.getConnection();
 		if (!sequelize) {
 			throw RESPONSES.generic.databaseConnectionError;
 		}
 		const { models } = sequelize;
-		await models.Category.destroy({
+		await models.Project.destroy({
 			where: {
 				id: Number(id)
 			}
@@ -30,4 +30,4 @@ const deleteCategory = async (req: NextApiRequest, res: NextApiResponse) => {
 	}
 };
 
-export default deleteCategory;
+export default deleteProject;

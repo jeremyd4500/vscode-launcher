@@ -1,6 +1,6 @@
 import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
 
-type CategoryAttributes = {
+export type CategoryAttributes = {
 	id: number;
 	name: string;
 };
@@ -11,6 +11,14 @@ type CategoryCreationAttributes = Optional<
 	CategoryAttributes,
 	CategoryOptionalAttributes
 >;
+
+export type EditCategoryBody = {
+	name?: string;
+};
+
+export type CreateCategoryBody = {
+	name: string;
+};
 
 export class Category
 	extends Model<CategoryAttributes, CategoryCreationAttributes>

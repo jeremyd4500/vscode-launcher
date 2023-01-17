@@ -1,8 +1,12 @@
+import Header from '@/components/Header';
+import { Project } from '@/db/models/Project';
 import { PlayArrow } from '@mui/icons-material';
 import { Fab } from '@mui/material';
-import Header from '../components/Header';
+import { useState } from 'react';
 
 export default function Root() {
+	const [projects, setProjects] = useState<Project[]>([]);
+
 	return (
 		<>
 			<Header />

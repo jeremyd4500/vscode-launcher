@@ -10,25 +10,26 @@ const Header = () => {
 		<>
 			<div
 				id='Header'
-				className='flex h-12 w-full items-center justify-between bg-one_dark_grey pl-2.5 pr-2.5 font-bold'
+				className='flex h-12 w-full items-center justify-between bg-grey pl-2.5 font-bold'
 			>
 				<h1>Projects</h1>
 				<div>
 					<Tooltip title='Add Project'>
 						<IconButton onClick={() => setShowAddProjectForm(true)}>
-							<Add className='text-one_dark_text hover:text-[#FFFFFF]' />
+							<Add className='text-text_default hover:text-[#FFFFFF]' />
 						</IconButton>
 					</Tooltip>
 					<Tooltip title='Settings'>
-						<IconButton>
-							<Settings className='text-one_dark_text hover:text-[#FFFFFF]' />
+						<IconButton className='pr-2.5'>
+							<Settings className='text-text_default hover:text-[#FFFFFF]' />
 						</IconButton>
 					</Tooltip>
 				</div>
 			</div>
-			{showAddProjectForm && (
-				<AddProjectForm hideForm={() => setShowAddProjectForm(false)} />
-			)}
+			<AddProjectForm
+				showForm={showAddProjectForm}
+				hideForm={() => setShowAddProjectForm(false)}
+			/>
 		</>
 	);
 };

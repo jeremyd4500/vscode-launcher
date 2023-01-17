@@ -2,13 +2,14 @@ import { DataTypes, Model, Optional, Sequelize } from 'sequelize';
 
 type ProjectAttributes = {
 	id: number;
+	nickname: string;
 	path: string;
-	categoryId: string;
+	categoryId: number;
 };
 
 type ProjectOptionalAttributes = keyof Pick<
 	ProjectAttributes,
-	'id' | 'categoryId'
+	'id' | 'nickname' | 'categoryId'
 >;
 
 type ProjectCreationAttributes = Optional<
@@ -16,13 +17,26 @@ type ProjectCreationAttributes = Optional<
 	ProjectOptionalAttributes
 >;
 
+export type CreateProjectBody = {
+	nickname?: string;
+	path: string;
+	categoryId?: number;
+};
+
+export type EditProjectBody = {
+	nickname?: string;
+	path?: string;
+	categoryId?: number;
+};
+
 export class Project
 	extends Model<ProjectAttributes, ProjectCreationAttributes>
 	implements ProjectAttributes
 {
 	id!: number;
+	nickname!: string;
 	path!: string;
-	categoryId!: string;
+	categoryId!: number;
 
 	static initModel(sequelize: Sequelize): typeof Project {
 		return sequelize.define('Project', {
@@ -31,6 +45,10 @@ export class Project
 				type: DataTypes.BIGINT,
 				allowNull: false,
 				primaryKey: true
+			},
+			nickname: {
+				type: DataTypes.STRING(99),
+				allowNull: true
 			},
 			path: {
 				type: DataTypes.STRING(99),
