@@ -5,7 +5,7 @@ A lightweight, simple utility app to make the process of opening multiple VS Cod
 ## Primary Technologies
 
 - [Tauri](https://tauri.app/)
-- [Next.JS](https://nextjs.org/)
+- [Vite](https://vitejs.dev/)
 - [React](https://reactjs.org/)
 - [Material UI](https://mui.com/)
 - [Tailwind](https://tailwindcss.com/)
