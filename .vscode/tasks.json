@@ -15,7 +15,7 @@
 		{
 			"label": "kill-port",
 			"command": "npx",
-			"args": ["kill-port", "3000"],
+			"args": ["kill-port", "5173"],
 			"group": "build",
 			"type": "shell"
 		}

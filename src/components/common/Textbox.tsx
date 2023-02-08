@@ -16,7 +16,7 @@ const Textbox = <T extends FieldValues>(props: TextboxProps<T>) => (
 		render={({ field }) => (
 			<>
 				<Input
-					className={`pl-3 pr-3 ${props.className}`.trim()}
+					className={`!pl-3 !pr-3 !text-default ${props.className}`.trim()}
 					error={props.errors[props.name] ? true : false}
 					{...field}
 				/>

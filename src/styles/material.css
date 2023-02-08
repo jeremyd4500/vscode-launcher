@@ -1,0 +1,19 @@
+.MuiInputBase-root {
+	background-color: theme(backgroundColor[dark_grey]) !important;
+	color: theme(textColor[default]);
+}
+
+.MuiInputBase-root::after {
+	border-bottom: 2px solid theme(textColor[bright]) !important;
+}
+
+.MuiInputBase-root.Mui-focused fieldset {
+	/* border: none !important; */
+	border-width: 0px !important;
+	border-bottom-width: 2px !important;
+	border-color: theme(textColor[bright]) !important;
+}
+
+.MuiAutocomplete-endAdornment .MuiSvgIcon-root {
+	fill: white !important;
+}

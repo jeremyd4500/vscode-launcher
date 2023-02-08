@@ -1,12 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import InputLabel from './common/InputLabel';
-import InputRow from './common/InputRow';
-import Textbox from './common/Textbox';
-import Modal from './Modal';
+import Autocomplete from '../common/Autocomplete';
+import InputLabel from '../common/InputLabel';
+import InputRow from '../common/InputRow';
+import Modal from '../common/Modal';
+import Textbox from '../common/Textbox';
 
 type AddProjectFormProps = {
 	hideForm: () => void;
@@ -26,6 +27,8 @@ const defaultValues = {
 type FormValues = typeof defaultValues;
 
 const AddProjectForm = (props: AddProjectFormProps) => {
+	const [category, setCategory] = useState('');
+
 	const {
 		handleSubmit,
 		reset,
@@ -50,9 +53,7 @@ const AddProjectForm = (props: AddProjectFormProps) => {
 	return (
 		<Modal closeModal={props.hideForm} open={props.showForm}>
 			<form onSubmit={handleSubmit(onSubmit)} className='w-[500px]'>
-				<h1 className='text-2xl font-bold text-text_bright'>
-					Add Project
-				</h1>
+				<h1 className='text-2xl font-bold text-bright'>Add Project</h1>
 				<InputRow>
 					<InputLabel primaryText='Project Path' />
 					<div className='flex'>
@@ -63,7 +64,7 @@ const AddProjectForm = (props: AddProjectFormProps) => {
 							errors={errors}
 						/>
 						<Button
-							className='ml-3 h-full bg-button_bg pl-5 pr-5 text-text_bright hover:bg-button_bg_hover'
+							className='!ml-3 !h-full !bg-button_grey !pl-5 !pr-5 !text-bright hover:!bg-button_light_grey'
 							onClick={async () => {
 								const { path, dialog } = await import(
 									'@tauri-apps/api'
@@ -91,6 +92,20 @@ const AddProjectForm = (props: AddProjectFormProps) => {
 						control={control}
 						name={'Nickname'}
 						errors={errors}
+					/>
+				</InputRow>
+				<InputRow>
+					<InputLabel
+						primaryText='Category'
+						secondaryText='(Optional)'
+					/>
+					<Autocomplete
+						value={category}
+						onChange={(value) => {
+							console.log(value);
+							setCategory(value);
+						}}
+						options={[]}
 					/>
 				</InputRow>
 			</form>

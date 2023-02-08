@@ -1,11 +1,11 @@
-import { CategoryAttributes } from '@/db/models/Category';
+import { Category } from '@/types/models/CategoryTypes';
 import {
 	Autocomplete as MuiAutocomplete,
-	createFilterOptions
+	createFilterOptions,
+	TextField
 } from '@mui/material';
-import TextField from '@mui/material/TextField';
 
-type FilterOptions = Omit<CategoryAttributes, 'id'> & {
+type FilterOptions = Omit<Category, 'id'> & {
 	inputValue?: string;
 };
 
@@ -49,7 +49,6 @@ const Autocomplete = (props: AutocompleteProps) => {
 			selectOnFocus
 			clearOnBlur
 			handleHomeEndKeys
-			id='free-solo-with-text-demo'
 			options={props.options}
 			getOptionLabel={(option) => {
 				// Value selected with enter, right from the input
@@ -67,7 +66,7 @@ const Autocomplete = (props: AutocompleteProps) => {
 			sx={{ width: 300 }}
 			freeSolo
 			renderInput={(params) => (
-				<TextField {...params} label='Free solo with text demo' />
+				<TextField variant='standard' {...params} />
 			)}
 		/>
 	);

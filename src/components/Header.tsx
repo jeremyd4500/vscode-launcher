@@ -1,7 +1,7 @@
 import { Add, Settings } from '@mui/icons-material';
 import { IconButton, Tooltip } from '@mui/material';
 import { useState } from 'react';
-import AddProjectForm from './AddProjectForm';
+import AddProjectForm from './forms/AddProjectForm';
 
 const Header = () => {
 	const [showAddProjectForm, setShowAddProjectForm] = useState(false);
@@ -16,12 +16,12 @@ const Header = () => {
 				<div>
 					<Tooltip title='Add Project'>
 						<IconButton onClick={() => setShowAddProjectForm(true)}>
-							<Add className='text-text_default hover:text-[#FFFFFF]' />
+							<Add className='text-default hover:text-bright' />
 						</IconButton>
 					</Tooltip>
 					<Tooltip title='Settings'>
 						<IconButton className='pr-2.5'>
-							<Settings className='text-text_default hover:text-[#FFFFFF]' />
+							<Settings className='text-default hover:text-bright' />
 						</IconButton>
 					</Tooltip>
 				</div>
